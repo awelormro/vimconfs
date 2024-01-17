@@ -7,7 +7,8 @@ let g:currentmode={
     \ 'no' : 'N-Op',
     \ 'v'  : 'V',
     \ 'V'  : 'V-Ln',
-    \ '^V' : 'V-Bl',
+    \ "^V" : 'Vbl',
+    \ '\<C-V>' :'Vbl',
     \ 's'  : 'S',
     \ 'S'  : 'S-Ln',
     \ '^S' : 'S-Bl',
@@ -85,7 +86,7 @@ set noshowmode
 set statusline=
 " set statusline+=%#IsModified#%{&mod?expand('%'):''}%*%#IsNotModified#%{&mod?'':expand('%')}%*
 set statusline+=%0#Custom1#
-set statusline+=%#Custom2#\%{toupper(g:currentmode[mode()])}  " The current mode
+set statusline+=%#Custom2#\%{toupper(mode())}  " The current mode
 set statusline+=%0#Custom1#\
 set statusline+=%0#MoreMsg#\
 set statusline+=%#MoreMsg#%<%F%m%r%h%w.15                       " File path, modified, readonly, helpfile, preview
