@@ -1,4 +1,4 @@
-
+packadd! matchit
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -18,6 +18,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'lervag/vimtex'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'lifepillar/vim-mucomplete'
 " Any valid git URL is allowed
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 

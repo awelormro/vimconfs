@@ -1,5 +1,5 @@
 " Minimalist but functional vimrc
-colorscheme slate
+colorscheme zaibatsu
 set nocp
 set termguicolors
 filetype plugin on
@@ -13,6 +13,9 @@ set termguicolors
 " Set tab width to 4 columns.
 set tabstop=2
 
+set concealcursor=n
+let g:tex_fast= ""
+set ttyfast regexpengine=1 ttyscroll=30
 " Use space characters instead of tabs.
 set expandtab
 " let g:netrw_keepdir=0
