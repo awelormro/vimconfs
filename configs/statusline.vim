@@ -95,20 +95,22 @@ set statusline+=%0#Custom1#
 set statusline+=%0#Custom2#%n                                 " Buffer number
 set statusline+=%0#Custom1#\
 set statusline+=%0#MoreMsg#\
-set statusline+=%2*%Y\                                 " FileType
+set statusline+=%2*%Y                                 " FileType
 " set statusline+=%2#FoldColumn#\ %{WebDevIconsGetFileTypeSymbol()}\ 
 " set statusline+=%3*\ │                                     " Separator
-set statusline+=%#MoreMsg#\                               " Separator
-set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
+set statusline+=%#MoreMsg#                              " Separator
+set statusline+=%0#Custom1#
+set statusline+=%2#Custom2#\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
+set statusline+=%0#Custom1#\
 set statusline+=\ (%{&ff})                               " FileFormat (dos/unix..)
 set statusline+=%=                                       " Right Side
-set statusline+=%3*                                     " Separator
-set statusline+=%2*:\ %02v\                         " Colomn number
-set statusline+=%#MoreMsg#\                               " Separator
+set statusline+=%3#SpellCap#                                     " Separator
+set statusline+=%2#SpellCap#:\ %02v\                         " Colomn number
+set statusline+=%#SpellCap#                              " Separator
 " set statusline+=%3*│                                     " Separator
 set statusline+=%3*                                     " Separator
-set statusline+=%1*\ :\ %02l/%L\ (%3p%%)\              " Line number / total lines, percentage of document
-set statusline+=%1*\                                     " Separator
+set statusline+=%1*:\ %02l/%L\ (%3p%%)             " Line number / total lines, percentage of document
+"set statusline+=%1*\                                     " Separator
 
 " hi User1 ctermfg=007 ctermbg=239 guibg=#4e4e4e guifg=#adadad
 " hi User2 ctermfg=007 ctermbg=236 guibg=#303030 guifg=#adadad

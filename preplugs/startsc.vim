@@ -21,6 +21,7 @@ fun! Start()
     setlocal
         \ bufhidden=wipe
         \ buftype=nofile
+        \ filetype=dash
         \ nobuflisted
         \ nocursorcolumn
         \ nocursorline
@@ -63,12 +64,13 @@ fun! Start()
     " No modifications to this buffer
     setlocal nomodifiable nomodified
     " nnoremap <buffer><silent> e :enew<CR>
-    nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
-    nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
-    nnoremap <buffer><silent> q :quit<CR>
+    "nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+    "nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+    "nnoremap <buffer><silent> q :quit<CR>
 
     " When we go to insert mode start a new buffer, and start insert
 endfun
 
 " Run after "doing all the startup stuff"
 autocmd VimEnter * call Start()
+

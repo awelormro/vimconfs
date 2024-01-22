@@ -1,4 +1,5 @@
 packadd! matchit
+let g:Hexokinase_highlighters = [ 'background' ]
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -11,14 +12,30 @@ call plug#begin()
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+"let g:gutentags_exclude_project_root =['/home/abu/abuwiki']
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
+"Plug 'vim-scripts/vimwiki'
+"let g:wiki_root = '~/abuwiki/mdtests'
+"Plug 'lervag/wiki.vim'
 Plug 'lervag/vimtex'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lifepillar/vim-mucomplete'
+Plug 'preservim/nerdcommenter'
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'vim-scripts/DrawIt'
+Plug 'mattn/calendar-vim'
+Plug 'tpope/vim-speeddating'
+Plug 'chrisbra/NrrwRgn'
+Plug 'suliveevil/utl.vim'
+Plug 'inkarkat/vim-SyntaxRange'
+Plug 'vim-scripts/Tagbar'
+Plug '~/Plantillas/vim-abuorgmode'
+Plug 'dhruvasagar/vim-table-mode'
 " Any valid git URL is allowed
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
@@ -47,6 +64,10 @@ Plug 'lifepillar/vim-mucomplete'
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
+
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+"inoremap <expr> <Tab> pumvisible() ? "\<C-P>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-N>" : "\<S-Tab>"
 " You can revert the settings after the call like so:
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting2
