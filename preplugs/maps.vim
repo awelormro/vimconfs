@@ -28,8 +28,11 @@ autocmd Filetype netrw map <buffer> cf :call CreateFile()<CR>
 autocmd Filetype vimwiki,pandoc nnoremap <Leader><Tab> :bn<CR>
 function CreateFile()
 	let nfile=input('Enter file name: ')
-	execute 'e '.b:netrw_curdir.'/'.nfile
   execute 'only'
+  let vimsize=winwidth('%') 
+  let winsize=vimsize-30
+	execute winsize.'vs '.b:netrw_curdir.'/'.nfile
+  "execute 'Lexplore'
 endfunction
 let g:netrw_winsize = 30
 nnoremap <Leader>fo :BrowseOldFi<CR>

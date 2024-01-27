@@ -1,4 +1,5 @@
-" Minimalist but functional vimrc
+"Minimalist but functional vimrc
+" conalep lol
 colorscheme sorbet
 set nocp
 set termguicolors
@@ -13,14 +14,18 @@ set termguicolors
 set shiftwidth=2
 " Set tab width to 4 columns.
 set tabstop=2
-autocmd FileType netw setlocal bufhidden=wipe
+autocmd FileType netrw setlocal bufhidden=wipe
+let g:netrw_liststyle=3
+let g:netrw_wiw=1
+let g:netrw_usetab=1
+nmap <unique> <Space>sh <Plug>NetrwShrink
 set concealcursor=n
 let g:tex_fast= ""
 set ttyfast ttyscroll=30
 set regexpengine=1
 " Use space characters instead of tabs.
 set expandtab
-" let g:netrw_keepdir=0
+let g:netrw_kepdir=0
 set history=1000
 " Wild Menu settings {{{2
 " Hide show mode insert label
@@ -62,4 +67,13 @@ set fillchars+=foldopen:─
 set fillchars+=foldclose:→
 set fillchars+=vert:\┃
 set fillchars+=eob:\  
+function! s:CleanEmptyBuffers()
+    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val)<0 && !getbufvar(v:val, "&mod")')
+    if !empty(buffers)
+        exe 'bw ' . join(buffers, ' ')
+    endif
+endfunction
 
+function! BufferIsEmpty()
+    return line('$') == 1 && getline(1) == '' 
+endfunction
