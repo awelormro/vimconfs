@@ -1,0 +1,16 @@
+--langdef=bibtags
+--langmap=bibtags:.bib
+--regex-bibtags=/^@article\{([^,]*)/\1/a,article/i
+--regex-bibtags=/^@book\{([^,]*)/\1/b,book/i
+--regex-bibtags=/^@booklet\{([^,]*)/\1/L,booklet/i
+--regex-bibtags=/^@conference\{([^,]*)/\1/c,conference/i
+--regex-bibtags=/^@inbook\{([^,]*)/\1/B,inbook/i
+--regex-bibtags=/^@incollection\{([^,]*)/\1/C,incollection/i
+--regex-bibtags=/^@inproceedings\{([^,]*)/\1/P,inproceedings/i
+--regex-bibtags=/^@manual\{([^,]*)/\1/m,manual/i
+--regex-bibtags=/^@mastersthesis\{([^,]*)/\1/T,mastersthesis/i
+--regex-bibtags=/^@misc\{([^,]*)/\1/M,misc/i
+--regex-bibtags=/^@phdthesis\{([^,]*)/\1/t,phdthesis/i
+--regex-bibtags=/^@proceedings\{([^,]*)/\1/p,proceedings/i
+--regex-bibtags=/^@techreport\{([^,]*)/\1/r,techreport/i
+--regex-bibtags=/^@unpublished\{([^,]*)/\1/u,unpublished/i

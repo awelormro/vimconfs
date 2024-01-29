@@ -14,18 +14,13 @@ set termguicolors
 set shiftwidth=2
 " Set tab width to 4 columns.
 set tabstop=2
-autocmd FileType netrw setlocal bufhidden=wipe
-let g:netrw_liststyle=3
-let g:netrw_wiw=1
-let g:netrw_usetab=1
-nmap <unique> <Space>sh <Plug>NetrwShrink
 set concealcursor=n
 let g:tex_fast= ""
 set ttyfast ttyscroll=30
 set regexpengine=1
 " Use space characters instead of tabs.
 set expandtab
-let g:netrw_kepdir=0
+"let g:netrw_kepdir=0
 set history=1000
 " Wild Menu settings {{{2
 " Hide show mode insert label

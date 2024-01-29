@@ -14,6 +14,14 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 nnoremap <C-W><C-m> <C-W><bar><C-W>_
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+"nnoremap <C-S-L> <C-W>L
+"nnoremap <C-S-H> <C-w>H
+"nnoremap <C-S-J> <C-w>J
+"nnoremap <C-S-K> <C-w>K
 inoremap {<Space> {  }<Left><Left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O

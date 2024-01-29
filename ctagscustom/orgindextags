@@ -1,0 +1,14 @@
+--langdef=orgindex
+--langmap=orgindex:.org
+--regex-orgindex=/^\*[ \t]+(.*)/# \1/h/
+--regex-orgindex=/^\*\*[ \t]+(.*)/. \1/h/
+--regex-orgindex=/^\*\*\*[ \t]+(.*)/. . \1/h/
+--regex-orgindex=/^\*\*\*\*[ \t]+(.*)/. . . \1/h/
+--regex-orgindex=/^\*\*\*\*\*[ \t]+(.*)/. . . . \1/h/
+--regex-orgindex=/^\*\*\*\*\*\*[ \t]+(.*)/. . . . \1/h/
+--regex-orgindex=/^\*\*\*\*\*\*\*[ \t]+(.*)/. . . . \1/h/
+--regex-orgindex=/\[\[([^]]+)\]\]/\1/a/
+--regex-orgindex=/^\.([^ \t].+)/\1/t/
+--regex-orgindex=/image::([^\[]+)/\1/i/
+--regex-orgindex=/image:([^:][^\[]+)/\1/I/
+--regex-orgindex=/include::([^\[]+)/\1/n/
