@@ -13,6 +13,7 @@ iabbrev <buffer> ncl <C-o>f\|<right><right><C-R>=Eatchar('\s')<CR>
 iabbrev <buffer> mfr \frac{}{}<C-o>2h<C-R>=Eatchar('\s')<CR>
 iabbrev <buffer> pcl <C-o>F\|<left><left><C-R>=Eatchar('\s')<CR>
 iabbrev <buffer> tci [@@
+
 iabbrev <buffer> ct <C-r>=Refcomplete()<CR><C-R>=Eatchar('\s')<CR>
 iabbrev <buffer> cit @<C-r>=Refcomplete()<CR><C-R>=Eatchar('\s')<CR>
 iabbrev <buffer> cgr <C-o>F+<Right><Delete>:<C-o>df+==:+<C-R>=Eatchar('\s')<CR>

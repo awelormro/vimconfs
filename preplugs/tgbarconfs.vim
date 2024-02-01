@@ -37,45 +37,28 @@ let g:tagbar_type_vimwiki = {
     \ 'l4subsection' : 'T',
   \ },
 \ }
-
-let g:tagbar_type_org = {
-      \ 'ctagstype'	: 'org',
-      \ 'kinds'		: [
-      \ 'p:part:1:1',
-      \ 'c:chapter:1',
-      \ 's:section:1',
-      \ 'u:subsection:1',
-      \ 'b:subsubsection:1',
-      \ 'P:paragraph:1',
-      \ ],
-      \ 'sro'			: '""',
-      \ 'kind2scope'	: {
-      \ 'p' : 'part',
-      \ 'c' : 'chapter',
-      \ 's' : 'section',
-      \ 'u' : 'subsection',
-      \ 'b' : 'subsubsection',
-      \ },
-      \ 'scope2kind'	: {
-      \ 'part' : 'p',
-      \ 'chapter' : 'c',
-      \ 'section' : 's',
-      \ 'subsection' : 'u',
-      \ 'subsubsection' : 'b',
-      \ 'paragraph' : 'P',
-      \ },
-    \ 'sort' : 0
-      \ }
 let g:tagbar_type_org = {
     \ 'ctagstype' : 'orgindex',
     \ 'deffile' : expand('<sfile>:p:h:h') . '/ctagscustom/orgindextags',
     \ 'kinds' : [
-        \ 'h:table of contents',
-        \ 'a:anchors:1',
-        \ 't:titles:1',
-        \ 'n:includes:1',
-        \ 'i:images:1',
-        \ 'I:inline images:1'
+        \ 'h:table of contents:1',
+        \ 't:anchors',
+        \ 's:titles',
+        \ 'S:includes:1',
+        \ 'p:images:1',
+        \ 'P:inline images:1'
     \ ],
     \ 'sort' : 0
 \ }
+function Pruebatimer(timerexample)
+  echo ' '
+  echo 'Pomodoro session finished \n'
+  let rstcom=input('Rest command, type to continue')
+endfunction
+function Generartimer()
+  let mins=input('Time of pomodoro session in mins')
+  let rest=input('Time of break in mins')
+  let realmins=mins*60000
+  let realrest=rest*60000
+  let timerexample=timer_start(realmins,'Pruebatimer',{'repeat':2})
+endfunction

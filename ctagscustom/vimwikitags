@@ -3,4 +3,4 @@
 --langmap=wikitags:.md
 --kinddef-wikitags=t,tag,tags
 --mline-regex-wikitags=/(^|[[:space:]])\#([A-Za-z_-]+)(^|[[:space:]])/\2/t/{mgroup=1}
---mline-regex-wikitags=/(^|[[:space:]])\#([A-Za-z_-]+)$/\2/t/{mgroup=2}
+--mline-regex-wikitags=/(^|[[:space:]])\#([0-9A-Za-z_-]+)$/\2/t/{mgroup=2}

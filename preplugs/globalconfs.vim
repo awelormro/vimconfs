@@ -1,8 +1,6 @@
 "Minimalist but functional vimrc
 " conalep lol
-colorscheme sorbet
-set nocp
-set termguicolors
+set nocp termguicolors autochdir smarttab
 filetype plugin on
 filetype indent on
 set number cursorline relativenumber hidden spell conceallevel=2 spelllang=es,en,pt
@@ -54,6 +52,11 @@ augroup cursor_behaviour
     " turn off current line highlighting when leaving insert mode
     " autocmd InsertLeave * set nocursorline
 augroup END
+
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
+
+
 
 " UTF encoding
 set encoding=UTF-8

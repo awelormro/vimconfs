@@ -26,6 +26,7 @@ fun! Start()
         \ nocursorcolumn
         \ nocursorline
         \ nolist
+        \ nospell
         \ nonumber
         \ noswapfile
         \ norelativenumber

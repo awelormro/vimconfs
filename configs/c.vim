@@ -35,7 +35,10 @@ Plug 'suliveevil/utl.vim'
 Plug 'inkarkat/vim-SyntaxRange'
 Plug 'vim-scripts/Tagbar'
 Plug '~/Plantillas/vim-abuorgmode'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'dhruvasagar/vim-table-mode'
+" vim-plug
+Plug 'whatyouhide/vim-gotham'
 " Any valid git URL is allowed
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 

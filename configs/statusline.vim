@@ -1,4 +1,6 @@
 " vim: set fdm=marker:
+
+colorscheme pitufoencabronado
 " Minimal statusline {{{1
 
 " Status Line Custom {{{2
@@ -8,7 +10,7 @@ let g:currentmode={
     \ 'v'  : 'V',
     \ 'V'  : 'V-Ln',
     \ "^V" : 'Vbl',
-    \ '\<C-V>' :'Vbl',
+    \ "\<C-V>" :"Vbl",
     \ 's'  : 'S',
     \ 'S'  : 'S-Ln',
     \ '^S' : 'S-Bl',
@@ -24,96 +26,80 @@ let g:currentmode={
     \ '!'  : 'Sh',
     \ 't'  : 'T'
     \}
-" custom highlight groups {{{2
-" hi! def link StatusLine Normal
-" status bar colors
-function Generatecustomhl(HlIn,HlAux,HlOut,HlProperty,HlBackground,HlPart)
-  let LinkedProperty=synIDattr(hlID(a:HlIn), a:HlProperty, a:HlBackground)
-  if empty(LinkedProperty)
-    let LinkedProperty=synIDattr(hlID(a:HlAux),a:HlProperty,a:HlBackground)
-  endif
-  if empty(LinkedProperty)
-    return ''
-  else
-    return a:HlPart.'='.LinkedProperty
-  endif
+
+" New Color pallette obtention {{{2
+function ConfigureHighlights(theme1,nm1,nm2)
+ let stlinebg = synIDattr(hlID('Normal'),'bg', 'GUI')
+ let custbg = synIDattr(hlID(a:theme1),'fg', 'GUI')
+ "echo stlinebg
+ "echo custbg 
+ exe 'hi '.a:nm1.' guibg='.stlinebg.' guifg='.custbg
+ if &background=='dark'
+   exe 'hi '.a:nm2.' guifg=#223355 guibg='.custbg
+ else
+   exe 'hi '.a:nm2.' guifg=#FafaFa guibg='.custbg
+ endif
 endfunction
 
-function GenerateHl(StyleText,StyleBorders)
-  let guifg=Generatecustomhl('StatusLine','Normal','Boolean','bg','GUI','guifg')
-  let guibg=Generatecustomhl('StatusLine','Normal','Boolean','fg','GUI','guibg')
-  let ctermfg=Generatecustomhl('StatusLine','Normal','Boolean','bg','cterm','ctermfg')
-  let ctermbg=Generatecustomhl('StatusLine','Normal','Boolean','fg','cterm','ctermbg')
-  " let g: guibg.' '.guifg.' '.ctermfg.' '.ctermbg
-  execute 'hi '
+function CreateHighlights()
+  call ConfigureHighlights('Constant','Custom1','Custom2')
+  call ConfigureHighlights('MoreMsg','Custom3','Custom4')
+  call ConfigureHighlights('NonText','Custom5','Custom6')
+  call ConfigureHighlights('Type','Custom7','Custom8')
 endfunction
 
-function Configurehighlighseps(hiname,hiname2,hl1,hl2)
-  let Linkfg1=synIDattr(hlID(a:hl1),'fg','cterm')
-  if empty(Linkfg1)
-    let Linkfg1=synIDattr(hlID(a:hl1),'fg','cterm')
-  endif
-  let Linkfg2=synIDattr(hlID(a:hl2),'bg','cterm')
-  if empty(Linkfg2)
-    let Linkfg2=synIDattr(hlID(a:hl2),'bg','cterm')
-  endif
-  let Linkfg3=synIDattr(hlID(a:hl1),'fg')
-  if empty(Linkfg3)
-    let Linkfg3=synIDattr(hlID(a:hl1),'fg')
-  endif
-  let Linkfg4=synIDattr(hlID(a:hl2),'bg')
-  if empty(Linkfg4)
-    let Linkfg4=synIDattr(hlID(a:hl2),'bg')
-  endif
-  if (empty(Linkfg1) || empty(Linkfg2))==1 || (empty(Linkfg1) && empty(Linkfg2))==1
-    echo "no ctermargs"
-    execute "hi ".a:hiname." guibg=".Linkfg3." guifg=".Linkfg4
-    execute "hi ".a:hiname2." guibg=".Linkfg4." guifg=".Linkfg3
-  elseif (empty(Linkfg3)==1 || empty(Linkfg3))==1 ||  (empty(Linkfg3)==1 && empty(Linkfg3))==1
-    echo "no guiargs"
-    execute "hi ".a:hiname." ctermbg=".Linkfg1." ctermfg=".Linkfg2
-    execute "hi ".a:hiname2." ctermbg=".Linkfg2." ctermfg=".Linkfg1
-  else
-    execute "hi ".a:hiname." ctermbg=".Linkfg1." ctermfg=".Linkfg2." guibg=".Linkfg3." guifg=".Linkfg4
-    execute "hi ".a:hiname2." ctermbg=".Linkfg2." ctermfg=".Linkfg1." guibg=".Linkfg4." guifg=".Linkfg3
-  endif
-endfunction
-call Configurehighlighseps("Custom2","Custom1","QuickFixLine","Normal")
-autocmd ColorScheme * call Configurehighlighseps("Custom2","Custom1","StatusLine","Normal")
-" Statusline configuration {{{2
+call CreateHighlights()
+autocmd ColorScheme * call CreateHighlights()
+" }}}"
+" Active Statusline configuration {{{2
 set laststatus=2
 set noshowmode
+function ActiveStatusline()
 set statusline=
-" set statusline+=%#IsModified#%{&mod?expand('%'):''}%*%#IsNotModified#%{&mod?'':expand('%')}%*
 set statusline+=%0#Custom1#
-set statusline+=%#Custom2#\%{toupper(mode())}  " The current mode
+set statusline+=%#Custom2#\%{toupper(g:currentmode[mode()])}  " The current mode
 set statusline+=%0#Custom1#\
-set statusline+=%0#MoreMsg#\
-set statusline+=%#MoreMsg#%<%F%m%r%h%w.15                       " File path, modified, readonly, helpfile, preview
-set statusline+=%#MoreMsg#                                     " Separator
+set statusline+=%0#Custom3#\
+set statusline+=%#Custom4#%{pathshorten(expand('%'))}         " File path, modified, readonly, helpfile, preview
+set statusline+=%#Custom3#\                                     " Separator
+set statusline+=%0#Custom7#
+set statusline+=%0#Custom8#%n                                 " Buffer number
+set statusline+=%0#Custom7#\
+set statusline+=%0#Custom5#\
+set statusline+=%2#Custom6#%Y                                 " FileType
+set statusline+=%#Custom5#                                   " Separator
 set statusline+=%0#Custom1#
-set statusline+=%0#Custom2#%n                                 " Buffer number
+set statusline+=%2#Custom2#%{''.(&fenc!=''?&fenc:&enc).''}    " Encoding
 set statusline+=%0#Custom1#\
-set statusline+=%0#MoreMsg#\
-set statusline+=%2*%Y                                 " FileType
-" set statusline+=%2#FoldColumn#\ %{WebDevIconsGetFileTypeSymbol()}\ 
-" set statusline+=%3*\ │                                     " Separator
-set statusline+=%#MoreMsg#                              " Separator
+set statusline+=%0#Custom7#
+set statusline+=%0#Custom8#%{&ff}                             " FileFormat (dos/unix..)
+set statusline+=%#Custom7#                                   " Separator
+set statusline+=%=                                            " Right Side
 set statusline+=%0#Custom1#
-set statusline+=%2#Custom2#\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
+set statusline+=%2#Custom2#:\ %02v\                          " Colomn number
+set statusline+=%1#Custom2#:\ %02l/%L
 set statusline+=%0#Custom1#\
-set statusline+=\ (%{&ff})                               " FileFormat (dos/unix..)
-set statusline+=%=                                       " Right Side
-set statusline+=%3#SpellCap#                                     " Separator
-set statusline+=%2#SpellCap#:\ %02v\                         " Colomn number
-set statusline+=%#SpellCap#                              " Separator
-" set statusline+=%3*│                                     " Separator
-set statusline+=%3*                                     " Separator
-set statusline+=%1*:\ %02l/%L\ (%3p%%)             " Line number / total lines, percentage of document
-"set statusline+=%1*\                                     " Separator
+set statusline+=%0#Custom5#
+set statusline+=%#Custom6#3p%%                               " Line number / total lines, percentage of document
+set statusline+=%0#Custom5#\                                " Separator
+endfunction
 
-" hi User1 ctermfg=007 ctermbg=239 guibg=#4e4e4e guifg=#adadad
-" hi User2 ctermfg=007 ctermbg=236 guibg=#303030 guifg=#adadad
-" hi User3 ctermfg=236 ctermbg=236 guibg=#303030 guifg=#303030
-" hi User4 ctermfg=239 ctermbg=239 guibg=#4e4e4e guifg=#4e4e4e
+call ActiveStatusline()
 " }}}
+" Inactuve statusline {{{
+function InactiveStatusline()
+setlocal statusline=%<%F%m%r%h%w.15                        " File path, modified, readonly, helpfile, preview
+endfunction
+" }}}"
+
+"
+"
+" Forgotten functions {{{
+
+"set statusline+=%0#Custom1#\
+"set statusline+=%#SpellCap#                                 " Separator
+" set statusline+=%3*│                                        " Separator
+"set statusline+=%0#Custom1#
+"set statusline+=%#Custom4#%<%F%m%r%h%w.15                    " File path, modified, readonly, helpfile, preview
+"set statusline+=%#Custom4#\%{fnamemodify([:fname:], ':~:.:gs%\(\.\?[^/]\)[^/]*/%\1/%')}
+" }}}"

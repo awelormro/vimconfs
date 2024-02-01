@@ -1,6 +1,7 @@
 let mapleader=" "
 let maplocalleader=" "
 nnoremap <Tab> :bn<CR>
+nnoremap <F2> :TagbarToggle<CR>
 nnoremap <S-Tab> :bp<CR>
 nnoremap <Leader>bf :b <C-D>
 nnoremap <Leader>e :Lexplore<Cr>
