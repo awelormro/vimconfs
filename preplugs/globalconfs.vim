@@ -2,6 +2,7 @@
 " conalep lol
 set nocp termguicolors autochdir smarttab
 filetype plugin on
+colorscheme pitufoencabronado
 filetype indent on
 set number cursorline relativenumber hidden spell conceallevel=2 spelllang=es,en,pt
 set smartcase smartindent
@@ -56,7 +57,7 @@ augroup END
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
-
+set splitbelow splitright
 
 " UTF encoding
 set encoding=UTF-8

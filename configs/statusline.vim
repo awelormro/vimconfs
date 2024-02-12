@@ -1,6 +1,5 @@
 " vim: set fdm=marker:
 
-colorscheme pitufoencabronado
 " Minimal statusline {{{1
 
 " Status Line Custom {{{2

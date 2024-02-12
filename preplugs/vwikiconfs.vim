@@ -5,14 +5,18 @@ autocmd FileType org setlocal tabstop=3
 autocmd FileType org setlocal shiftwidth=3
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-let g:vimwiki_global_ext=0
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 let g:table_mode_align_char= ':' 
-let g:vimwiki_folding='expr'
+"let g:vimwiki_folding='expr'
 "let g:vimwiki_folding='custom'
+let g:vimwiki_folding = 'expr:quick'
 let g:vimwiki_tag_format = { 'pre_mark': '#\w', 'post_mark': '', 'sep': ' ' }
 let g:vimwiki_table_auto_fmt=0
+
+"au FileType vimwiki set syntax=pandoc.vimwiki
+let g:vimwiki_global_ext= 0
+"let g:vimwiki_folding='expr'
 let g:vimwiki_list = [{'path'  : '~/abuwiki/mdtests/',
                      \ 'path_html': '~/abuwikiexportedblog/',
                      \ 'syntax': 'markdown', 'ext': '.md',
