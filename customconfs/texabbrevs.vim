@@ -1,0 +1,2 @@
+iabbrev <buffer> tbol \textbf{}
+

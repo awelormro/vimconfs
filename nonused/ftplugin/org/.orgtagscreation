@@ -1,0 +1,8 @@
+
+--langdef=orgtags
+--languages=orgtags
+--langmap=orgtags:.org
+--kinddef-orgtags=t,tag,tags
+--mline-regex-orgtags=/(^|[[:space:]])\:([A-Za-z0-9]+)\:/\2/t/{mgroup=1}
+--mline-regex-orgtags=/([A-Za-z0-9]+)\:([A-Za-z0-9]+)\:([A-Za-z0-9]+)/\2/t/{mgroup=2}
+--mline-regex-orgtags=/([A-Za-z0-9]+)\:([A-Za-z0-9]+)\:$/\2/t/{mgroup=2}
