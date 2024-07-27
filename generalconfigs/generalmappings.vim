@@ -6,8 +6,8 @@ g:mapleader = " "
 g:maplocalleader = " "
 # }}}
 # Fern Mappings {{{1
-nnoremap <Leader>e :Lexplore<CR>
-nnoremap <Leader>f<Leader>f :Lexplore %:h<CR>
+nnoremap <Leader>e :30Lexplore<CR>
+nnoremap <Leader>f<Leader>f :30Lexplore %:h<CR>
 nnoremap <Leader>rx :CustomExplore<Cr>
 g:netrw_usetab = 1
 nmap <unique> <Leader>sh <Plug>NetrwShrink

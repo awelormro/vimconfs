@@ -3,6 +3,7 @@ filetype plugin on
 filetype indent on
 # vim: set fdm=marker:
 packadd! matchit
+packadd! justify
 plug#begin()
 # First info section {{{
 # The default plugin directory will be as follows:
@@ -27,6 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-abolish'
+# Plug 'vim-airline/vim-airline'
 # Plug ''
 Plug 'inkarkat/vim-ingo-library'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -71,8 +73,8 @@ Plug 'Donaldttt/fuzzyy'
 # }}}
 plug#end()
 import '~/.vim/plgconfs/minplgsconfs.vim'
-import '~/.vim/generalconfigs/start_screen.vim'
-
+# import '~/.vim/generalconfigs/start_screen.vim'
+g:markdown_folding = 1
 g:calendar_diary_list = [
         {'name': 'Note', 'path': $HOME .. '/note', 'ext': '.org'},
         {'name': 'Diary', 'path': $HOME .. '/diary', 'ext': '.diary.org'}
@@ -97,3 +99,4 @@ g:tagbar_type_vim = {
       \ ],
 }
 
+import '~/.vim/plgconfs/statuscustom.vim'

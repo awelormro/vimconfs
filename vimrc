@@ -6,6 +6,8 @@ vim9script
 # TODO: Hay que checar el cuello de botella en la sintaxis org
 # TODO: Pasar a vim9 y ver si org da mejores resultados
 # TODO: Buscadores con fuzzysearch para buffers, oldfiles, etc.
+#
+
 runtime! generalconfigs/**
 g:tagbar_iconchars = ['▸', '▾']
 var pconf = 'nplugs'

@@ -61,6 +61,8 @@ hi Operator guifg=#6de5ff guibg=NONE
 hi cssAttr guifg=#6de5ff guibg=NONE
 
 
+hi Conceal guifg=#FFFFFF guibg=NONE
+hi Folded guibg=#454545
 highlight ColorColumn guifg=NONE guibg=#252525 gui=NONE guisp=NONE
 hi Pmenu guifg=#dadada guibg=#454545
 hi SignColumn guibg=#353747

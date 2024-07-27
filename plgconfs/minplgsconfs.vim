@@ -5,9 +5,6 @@ g:mucomplete#enable_auto_at_startup = 1
 set ttyscroll=20
 nmap zuz <Plug>(FastFoldUpdate)
 g:mucomplete#completion_delay = 100
-g:fastfold_savehook = 1
-g:fastfold_force = 1
-g:fastfold_fdmhook = 1
 g:fastfold_fold_command_suffixes =  [ 'x', 'X', 'a', 'A', 'o', 'O', 'c', 'C' ]
 g:fastfold_fold_movement_commands = [ ']z', '[z', 'zj', 'zk' ]
 # autocmd FileType org :let g:table_mode_corner_corner='+'<CR>
